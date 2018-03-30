@@ -1,7 +1,9 @@
-package com.thephoenixit.onlineanimemusic;
+package com.thephoenixit.onlineanimemusic.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.thephoenixit.onlineanimemusic.R;
 
 public class MainActivity extends AppCompatActivity {
 

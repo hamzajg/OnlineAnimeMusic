@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="horizontal" android:id="@id/rl_topviewone" android:background="@color/black40" android:layout_width="fill_parent" android:layout_height="?actionBarSize"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:playpauseview="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:layout_toStartOf="@id/bottombar_play">
+        <ImageView android:id="@id/img_bottom_slideone" android:layout_width="?actionBarSize" android:layout_height="?actionBarSize" android:src="@drawable/bg_default_album_art" android:scaleType="centerCrop" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textStyle="bold" android:textColor="@android:color/white" android:ellipsize="marquee" android:id="@id/txt_songname_small" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:scrollHorizontally="true" android:freezesText="true" android:marqueeRepeatLimit="marquee_forever" />
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:textStyle="normal" android:textColor="@color/player_Artist" android:id="@id/txt_artist_small" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/bottombar_play" android:padding="10.0dip" android:clickable="true" android:layout_width="?actionBarSize" android:layout_height="?actionBarSize" android:src="@drawable/selector_play" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+</RelativeLayout>

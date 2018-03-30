@@ -3,6 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
+        manifestPlaceholders = [onesignal_app_id: "878107db-b014-409e-89e3-267920f0d972",
+                                // Project number pulled from dashboard, local value is ignored.
+                                onesignal_google_project_number: 'REMOTE']
+
         applicationId "com.thephoenixit.onlineanimemusic"
         minSdkVersion 15
         targetSdkVersion 26
@@ -25,4 +29,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.7.2'
+    // OneSignal SDK
+    implementation 'com.onesignal:OneSignal:3.8.3'
+    implementation 'com.google.firebase:firebase-ads:12.0.1'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+
+
+
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="horizontal" android:background="@color/black40" android:layout_width="fill_parent" android:layout_height="?actionBarSize"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:playpauseview="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:layout_toStartOf="@id/rel_bottombar_moreicon">
+        <ImageView android:id="@id/img_bottom_slidetwo" android:layout_width="?actionBarSize" android:layout_height="?actionBarSize" android:src="@drawable/bg_default_album_art" android:scaleType="centerCrop" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textStyle="bold" android:textColor="@android:color/white" android:ellipsize="marquee" android:id="@id/txt_playesongname_slidetoptwo" android:focusable="true" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:maxLines="1" android:scrollHorizontally="true" android:freezesText="true" android:marqueeRepeatLimit="marquee_forever" />
+            <TextView android:textAppearance="?android:textAppearanceSmall" android:textStyle="normal" android:textColor="@color/player_Artist" android:id="@id/txt_songartistname_slidetoptwo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/rel_bottombar_moreicon" android:layout_width="125.0dip" android:layout_height="48.0dip" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:layout_marginStart="5.0dip" android:layout_alignParentEnd="true">
+        <ImageView android:id="@id/bottombar_img_Favorite" android:background="@drawable/bar_selector_white" android:clickable="true" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@drawable/selector_favorite" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_marginEnd="15.0dip" android:layout_toStartOf="@id/bottombar_img_desc" />
+        <ImageView android:id="@id/bottombar_img_desc" android:background="@drawable/bar_selector_white" android:clickable="true" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@mipmap/about" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_toStartOf="@id/bottombar_shareicon" />
+        <ImageView android:id="@id/bottombar_shareicon" android:background="@drawable/bar_selector_white" android:clickable="true" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@mipmap/share" android:scaleType="centerInside" android:layout_centerVertical="true" android:layout_marginStart="20.0dip" android:layout_marginEnd="10.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</RelativeLayout>
