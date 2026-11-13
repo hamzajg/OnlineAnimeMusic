@@ -12,7 +12,6 @@ for new releases.
 
 - **Language:** Java
 - **Min SDK:** 15 · **Target/compile SDK:** 26
-- **Media:** ExoPlayer 2.7.2
 - **UI:** Android Support Library (`appcompat`, `constraint-layout`), Calligraphy
 - **Push:** OneSignal 3.8.3
 - **Ads:** Firebase Ads 12.0.1
@@ -33,12 +32,12 @@ settings.gradle
 
 ## Building
 
-The project targets SDK 26 and has no Gradle wrapper checked in. Open it in
-Android Studio (or run Gradle with `ANDROID_HOME` pointing at an SDK that has
-API 26 installed):
+The Gradle 4.4 wrapper is checked in, matching AGP 3.1.0. It needs JDK 8 and
+an SDK with API 26 and build-tools 27.0.3 installed (`ANDROID_HOME` or
+`local.properties`):
 
 ```bash
-gradle :app:assembleDebug
+sh gradlew :app:assembleDebug
 ```
 
 ## Configuration
@@ -50,11 +49,17 @@ not committed.
 ## Tests
 
 ```bash
-gradle :app:testDebugUnitTest
+sh gradlew :app:testDebugUnitTest
 ```
+
+CI installs API 26 / build-tools 27.0.3, sets up JDK 8 and runs the same task.
 
 ## Status
 
-Legacy sample app. It uses the pre-AndroidX support library and an old SDK and
-ExoPlayer version; modernizing it would require an AndroidX migration and a
-dependency upgrade.
+Legacy sample app. It uses the pre-AndroidX support library and an old SDK;
+modernizing it would require an AndroidX migration and a dependency upgrade.
+
+ExoPlayer 2.7.2 was declared but never used (the only reference was a static
+field), and that artifact is no longer published on Maven Central or Google
+Maven, so the dependency was removed rather than upgraded. `MainActivity` is
+still a placeholder, so there is no player UI yet.

@@ -2,8 +2,6 @@ package com.thephoenixit.onlineanimemusic.utils;
 
 import android.content.Context;
 
-import com.google.android.exoplayer2.SimpleExoPlayer;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -43,7 +41,6 @@ public class Constant implements Serializable {
     public static int columnWidth = 0;
     public static Context context;
     public static long currentProgress = 0L;
-    public static SimpleExoPlayer exoPlayer;
     public static String frag = "";
     public static Boolean isAppFirst = Boolean.valueOf(true);
     public static Boolean isAppOpen = Boolean.valueOf(false);
