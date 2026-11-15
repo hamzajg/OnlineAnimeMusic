@@ -22,4 +22,41 @@
         android:layout_weight="1"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp" />
+
+    <LinearLayout
+        android:id="@+id/bar_now_playing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray">
+
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|&lt;" />
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&gt;|" />
+
+        <TextView
+            android:id="@+id/text_now_playing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
 </LinearLayout>
