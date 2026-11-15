@@ -59,6 +59,7 @@ public class PlayerControllerTest {
 
     @Test
     public void selectLoadsTrackUriPaused() {
+        // covers scenario: Tap song to play
         FakeEngine e = new FakeEngine();
         PlayerController c = controller(playlist(3), e);
         c.select(2);

@@ -61,5 +61,12 @@ modernizing it would require an AndroidX migration and a dependency upgrade.
 
 ExoPlayer 2.7.2 was declared but never used (the only reference was a static
 field), and that artifact is no longer published on Maven Central or Google
-Maven, so the dependency was removed rather than upgraded. `MainActivity` is
-still a placeholder, so there is no player UI yet.
+Maven, so the dependency was removed rather than upgraded.
+
+## Offline player MVP
+
+The app now ships a self-contained offline player (the original remote
+api.php backend was a dead Envato demo): `assets/catalog.json` +
+generated demo WAVs seed the song table on first launch, `MainActivity`
+lists the catalog, and `PlayerController`/`MediaPlayerEngine` provide
+play/pause/next/previous/shuffle/repeat-one — no network required.
