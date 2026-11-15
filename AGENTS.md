@@ -4,11 +4,13 @@ Guidance for AI agents (and humans) working in this repository.
 
 ## Project
 
-OnlineAnimeMusic — a legacy Android sample app for streaming anime music
-(`com.thephoenixit.onlineanimemusic`): media player ambitions, browsable
-catalogue, OneSignal push for new releases, Firebase ads. **Early-stage /
-legacy**: pre-AndroidX support library, old SDK, `MainActivity` is a
-placeholder — there is no player UI yet.
+OnlineAnimeMusic — an Android music player
+(`com.thephoenixit.onlineanimemusic`): **offline MVP shipped** — bundled
+catalog (`assets/catalog.json` + generated demo WAVs in `assets/music/`),
+song list in `MainActivity`, and `PlayerController`/`MediaPlayerEngine`
+playback with play/pause/next/prev/shuffle/repeat-one. The original remote
+api.php backend (dead Envato demo) left the critical path. OneSignal push
+and Firebase ads remain wired but unused by the player.
 Stack: Java, Android (AGP 8.7.3 / Gradle 8.9), minSdk 24 /
 compile+target SDK 34, AndroidX, JDK 17, appcompat + constraint-layout +
 material + Calligraphy3, OneSignal 5.10.2, Firebase Ads 23.6.0.
@@ -33,11 +35,16 @@ app/src/main/java/com/thephoenixit/onlineanimemusic/
   app/MyApp.java          Application class
   utils/
     Constant.java         constants
-    DBHelper.java         local DB helper (209 lines)
+    DBHelper.java         SQLite helper (song/recent tables, schema in onCreate)
+    CatalogSeeder.java    seeds song table from assets/catalog.json (idempotent)
+    PlayerController.java pure-Java playlist engine (Engine interface, JVM-tested)
+    MediaPlayerEngine.java MediaPlayer adapter — streams assets via AssetFileDescriptor
     ItemSong.java / ItemAbout.java   model POJOs
-    JsonUtils.java        JSON parsing helpers
+    JsonUtils.java        JSON parsing helpers (legacy remote API)
   views/
-    MainActivity.java     PLACEHOLDER shell (no player UI)
+    MainActivity.java     song list + now-playing bar (offline playback)
+  assets/catalog.json + assets/music/*.wav   bundled catalog + demo audio
+specs/offline-music-player/   spec-driven artifacts (SPEC/EXAMPLES/BACKLOG/WAVES/VALIDATION)
     SplashActivity.java   splash screen
 app/src/main/res/         resources
 app/build.gradle          SDK 34, OneSignal app id placeholder,
@@ -66,8 +73,9 @@ Only ~10 Java files — small legacy sample. No player/service layer yet.
   it locally; don't commit secrets.
 - ExoPlayer 2.7.2 was **removed** (artifact unpublished) — don't re-add
   without checking availability.
-- `MainActivity` is a placeholder — the "media player" doesn't exist;
-  don't document player features.
+- Playback is offline-only by design: `PlayerController` takes an `Engine`
+  interface; `MediaPlayerEngine` resolves `file:///android_asset/` URIs via
+  `AssetFileDescriptor`. Don't add network playback without a spec.
 - Calligraphy is `io.github.inflationx:calligraphy3` (ViewPump-based) —
   init lives in `MyApp.onCreate`.
 - Local clone may sit on `fix/build-wrapper-and-ci` — branch from
