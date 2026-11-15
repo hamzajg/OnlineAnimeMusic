@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <com.sothree.slidinguppanel.SlidingUpPanelLayout
-        android:id="@id/sliding_layout"
+        android:id="@+id/sliding_layout"
         android:layout_width="fill_parent"
         android:layout_height="0.0dip"
         android:layout_weight="1.0"
@@ -20,20 +20,20 @@
         ads:umanoShadowHeight="4.0dip">
 
         <include
-            android:id="@id/include_sliding_panelchildone"
+            android:id="@+id/include_sliding_panelchildone"
             layout="@layout/include_slidingpanel_childone"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
 
         <include
-            android:id="@id/include_sliding_panel_childtwo"
+            android:id="@+id/include_sliding_panel_childtwo"
             layout="@layout/include_slidingpanel_childtwo"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
     <com.google.android.gms.ads.AdView
-        android:id="@id/adView"
+        android:id="@+id/adView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"

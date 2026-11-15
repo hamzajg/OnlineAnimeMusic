@@ -72,10 +72,10 @@
     <string name="admob_banner_id">ca-app-pub-8590177428730475~4170407740</string>
     <string name="admob_intertestial_id">ca-app-pub-8590177428730475/5254644304</string>
     <string name="already_download">File already downloaded</string>
-    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="appbar_scrolling_view_behavior">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="artist">Artist</string>
     <string name="author">Author</string>
-    <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="bottom_sheet_behavior">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
     <string name="cannot_use_save">Cannot use save feature without requested permission</string>
     <string name="categories">Categories</string>
     <string name="category">Category</string>

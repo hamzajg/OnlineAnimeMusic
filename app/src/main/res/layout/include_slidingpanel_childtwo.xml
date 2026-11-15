@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@id/include_sliding_panel_childtwo"
+    android:id="@+id/include_sliding_panel_childtwo"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/bg">
 
     <ImageView
-        android:id="@id/image_songAlbumbg"
+        android:id="@+id/image_songAlbumbg"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="centerCrop"
@@ -23,18 +23,18 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@id/rl_small"
+            android:id="@+id/rl_small"
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize">
 
             <include
-                android:id="@id/slidepanelchildtwo_topviewone"
+                android:id="@+id/slidepanelchildtwo_topviewone"
                 layout="@layout/include_slidepanelchildtwo_topviewone"
                 android:layout_width="fill_parent"
                 android:layout_height="?actionBarSize" />
 
             <include
-                android:id="@id/slidepanelchildtwo_topviewtwo"
+                android:id="@+id/slidepanelchildtwo_topviewtwo"
                 layout="@layout/include_slidepanelchildtwo_topviewtwo"
                 android:layout_width="fill_parent"
                 android:layout_height="?actionBarSize"
@@ -57,8 +57,8 @@
                     android:orientation="vertical"
                     android:weightSum="10.0">
 
-                    <android.support.v4.view.ViewPager
-                        android:id="@id/viewPager_song"
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewPager_song"
                         android:layout_width="fill_parent"
                         android:layout_height="0.0dip"
                         android:layout_weight="7.0" />
@@ -70,7 +70,7 @@
                     android:layout_above="@id/bottom_palyLayout">
 
                     <ImageView
-                        android:id="@id/ivLike"
+                        android:id="@+id/ivLike"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:scaleType="center"
@@ -78,7 +78,7 @@
                         android:visibility="invisible" />
 
                     <View
-                        android:id="@id/vBgLike"
+                        android:id="@+id/vBgLike"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_alignParentTop="true"
@@ -87,7 +87,7 @@
                 </RelativeLayout>
 
                 <include
-                    android:id="@id/bottom_palyLayout"
+                    android:id="@+id/bottom_palyLayout"
                     layout="@layout/include_slidepanelchildtwo_bottomview"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@id/slideView"
+                android:id="@+id/slideView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@color/white"
@@ -117,7 +117,7 @@
                     android:background="@color/black40" />
 
                 <WebView
-                    android:id="@id/webview_song_desc"
+                    android:id="@+id/webview_song_desc"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent" />
             </LinearLayout>
