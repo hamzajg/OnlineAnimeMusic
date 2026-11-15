@@ -18,7 +18,6 @@ Scenarios proven by this wave:
 
 Scenarios proven by this wave:
 - Song list shows catalog
-- Playlist navigation wraps
 
 | Item | Title | Size | Deps | Notes |
 |------|-------|------|------|-------|
@@ -27,6 +26,7 @@ Scenarios proven by this wave:
 ## Wave 3 — iteration 3
 
 Scenarios proven by this wave:
+- Playlist navigation wraps
 - Tap song to play
 - Play pause toggles
 - Shuffle and repeat work
