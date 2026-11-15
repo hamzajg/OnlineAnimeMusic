@@ -7,14 +7,26 @@ import com.thephoenixit.onlineanimemusic.utils.DBHelper;
 
 import java.io.IOException;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.viewpump.ViewPump;
 
 public class MyApp extends Application {
     public void onCreate()
     {
         super.onCreate();
-        CalligraphyConfig.initDefault((new uk.co.chrisjenx.calligraphy.CalligraphyConfig.Builder()).setDefaultFontPath("fonts/futura_med.ttf").setFontAttrId(0x7f010003).build());
-        OneSignal.startInit(getApplicationContext()).init();
+        ViewPump.init(ViewPump.builder().addInterceptor(new CalligraphyInterceptor(new CalligraphyConfig.Builder().setDefaultFontPath("fonts/futura_med.ttf").setFontAttrId(io.github.inflationx.calligraphy3.R.attr.fontPath).build())).build());
+        OneSignal.initWithContext(this, "878107db-b014-409e-89e3-267920f0d972");
+        OneSignal.getNotifications().requestPermission(true, new kotlin.coroutines.Continuation<Boolean>() {
+            @Override
+            public kotlin.coroutines.CoroutineContext getContext() {
+                return kotlin.coroutines.EmptyCoroutineContext.INSTANCE;
+            }
+
+            @Override
+            public void resumeWith(Object result) {
+            }
+        });
         DBHelper dbhelper = new DBHelper(getApplicationContext());
         try
         {

@@ -9,9 +9,9 @@ OnlineAnimeMusic — a legacy Android sample app for streaming anime music
 catalogue, OneSignal push for new releases, Firebase ads. **Early-stage /
 legacy**: pre-AndroidX support library, old SDK, `MainActivity` is a
 placeholder — there is no player UI yet.
-Stack: Java, Android (AGP 3.1.0 / Gradle 4.4), minSdk 15 / target+compile
-SDK 26, appcompat + constraint-layout + Calligraphy, OneSignal 3.8.3,
-Firebase Ads 12.0.1.
+Stack: Java, Android (AGP 8.7.3 / Gradle 8.9), minSdk 24 /
+compile+target SDK 34, AndroidX, JDK 17, appcompat + constraint-layout +
+material + Calligraphy3, OneSignal 5.10.2, Firebase Ads 23.6.0.
 
 ## Commands
 
@@ -22,8 +22,8 @@ Verified 2026-11-13 against CI (`.github/workflows/ci.yml`) and README.
 | Build APK | `sh gradlew :app:assembleDebug` |
 | Unit tests | `sh gradlew :app:testDebugUnitTest` (CI runs `sh gradlew test`) |
 
-Requires: **JDK 8** (AGP 3.1/Gradle 4.4), Android SDK **API 26 +
-build-tools 27.0.3** (`ANDROID_HOME` or `local.properties`).
+Requires: **JDK 17**, Android SDK **API 34 + build-tools 34.0.0**
+(`ANDROID_HOME` or `local.properties`).
 `google-services.json` is NOT committed — Firebase build needs it locally.
 
 ## Architecture
@@ -40,18 +40,18 @@ app/src/main/java/com/thephoenixit/onlineanimemusic/
     MainActivity.java     PLACEHOLDER shell (no player UI)
     SplashActivity.java   splash screen
 app/src/main/res/         resources
-app/build.gradle          SDK levels, OneSignal app id placeholder,
+app/build.gradle          SDK 34, OneSignal app id placeholder,
                           Firebase ads dep
-build.gradle / settings.gradle / gradlew(bat)   Gradle 4.4 wrapper
+build.gradle / settings.gradle / gradlew(bat)   Gradle 8.9 wrapper
 ```
 
 Only ~10 Java files — small legacy sample. No player/service layer yet.
 
 ## Conventions
 
-- Plain Java, old support-library Android (`android.support.*`, not
-  AndroidX) — match imports; don't mix AndroidX into this codebase
-  without a migration plan.
+- Plain Java, AndroidX (`androidx.*`, `com.google.android.material.*`) —
+  the support-library migration already happened; don't reintroduce
+  `android.support.*`.
 - `utils/` holds helpers/models; `views/` holds activities — the existing
   (loose) split; keep new code in the same spirit.
 - OneSignal app id is a `manifestPlaceholders` value in `app/build.gradle`
@@ -61,16 +61,15 @@ Only ~10 Java files — small legacy sample. No player/service layer yet.
 ## Landmines
 
 - **Default branch is `master`, not `main`.**
-- **JDK 8 + SDK 26/build-tools 27.0.3 hard requirements** — CI pins them;
-  newer toolchains break AGP 3.1.
+- **JDK 17 + SDK 34/build-tools 34.0.0 required** — CI pins them.
 - `google-services.json` not committed — Firebase-dependent builds need
   it locally; don't commit secrets.
 - ExoPlayer 2.7.2 was **removed** (artifact unpublished) — don't re-add
   without checking availability.
 - `MainActivity` is a placeholder — the "media player" doesn't exist;
   don't document player features.
-- Pre-AndroidX + minSdk 15 — modernising = AndroidX migration + dep
-  upgrades; a separate project.
+- Calligraphy is `io.github.inflationx:calligraphy3` (ViewPump-based) —
+  init lives in `MyApp.onCreate`.
 - Local clone may sit on `fix/build-wrapper-and-ci` — branch from
   `origin/master`.
 
@@ -78,8 +77,8 @@ Only ~10 Java files — small legacy sample. No player/service layer yet.
 
 - Branch from `master`; name branches `feat/*`, `fix/*`, `chore/*`, `docs/*`.
 - Docs-only changes still go through a PR; never commit to `master` directly.
-- Verify before claiming: `sh gradlew :app:testDebugUnitTest` on JDK 8 +
-  SDK 26 — report the real result.
+- Verify before claiming: `sh gradlew clean test --no-daemon` and
+  `sh gradlew assembleDebug --no-daemon` on JDK 17; report the real result.
 - Keep changes minimal and consistent with surrounding code. No drive-by
   refactors.
 - Update AGENTS.md / docs/ARCHITECTURE.md when features land, deps change,
