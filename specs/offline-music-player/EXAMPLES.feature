@@ -22,7 +22,7 @@ Feature: Offline Music Player
     When the listener opens MainActivity
     Then every song is listed with title, artist and duration
 
-  @w2
+  @w3
   Scenario: Playlist navigation wraps
     Given a playlist of three songs and the first is current
     When the listener presses previous
