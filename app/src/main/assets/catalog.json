@@ -1,0 +1,34 @@
+{
+  "songs": [
+    {
+      "id": "s1",
+      "title": "Neon Sunrise",
+      "artist": "Demo Ensemble",
+      "category_id": "c1",
+      "category_name": "Opening Themes",
+      "description": "Bright synth opener — bundled demo track.",
+      "duration": "0:06",
+      "audio": "music/neon_sunrise.wav"
+    },
+    {
+      "id": "s2",
+      "title": "Midnight Drive",
+      "artist": "Demo Ensemble",
+      "category_id": "c1",
+      "category_name": "Opening Themes",
+      "description": "Downtempo night-drive groove — bundled demo track.",
+      "duration": "0:06",
+      "audio": "music/midnight_drive.wav"
+    },
+    {
+      "id": "s3",
+      "title": "Cherry Static",
+      "artist": "Demo Ensemble",
+      "category_id": "c2",
+      "category_name": "B-Sides",
+      "description": "Lo-fi outro with a detuned lead — bundled demo track.",
+      "duration": "0:06",
+      "audio": "music/cherry_static.wav"
+    }
+  ]
+}
