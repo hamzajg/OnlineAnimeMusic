@@ -3,6 +3,7 @@ package com.thephoenixit.onlineanimemusic.app;
 import android.app.Application;
 
 import com.onesignal.OneSignal;
+import com.thephoenixit.onlineanimemusic.utils.CatalogSeeder;
 import com.thephoenixit.onlineanimemusic.utils.DBHelper;
 
 import java.io.IOException;
@@ -31,11 +32,12 @@ public class MyApp extends Application {
         try
         {
             dbhelper.createDataBase();
+            CatalogSeeder.seedIfEmpty(getApplicationContext());
             return;
         }
-        catch(IOException ioexception)
+        catch(IOException | org.json.JSONException e)
         {
-            ioexception.printStackTrace();
+            e.printStackTrace();
         }
     }
 }

@@ -54,6 +54,11 @@ public class DBHelper extends SQLiteOpenHelper
 
     public void addToFav(ItemSong itemsong)
     {
+        addSong(itemsong);
+    }
+
+    public void addSong(ItemSong itemsong)
+    {
         String s = DatabaseUtils.sqlEscapeString(itemsong.getDescription());
         String s1 = itemsong.getMp3Name().replace("'", "%27");
         String s2 = itemsong.getCategoryName().replace("'", "%27");
@@ -93,8 +98,15 @@ public class DBHelper extends SQLiteOpenHelper
     {
         if(!checkDataBase())
         {
-            getReadableDatabase();
-            copyDataBase();
+            getWritableDatabase();
+            try
+            {
+                copyDataBase();
+            }
+            catch(IOException ioexception)
+            {
+                // No bundled mp3.db asset — the onCreate schema is enough.
+            }
         }
     }
 
@@ -184,6 +196,9 @@ public class DBHelper extends SQLiteOpenHelper
 
     public void onCreate(SQLiteDatabase sqlitedatabase)
     {
+        String columns = "(sid text primary key, title text, \"desc\" text, artist text, duration text, url text, image text, image_small text, cid text, cname text)";
+        sqlitedatabase.execSQL("create table if not exists song " + columns);
+        sqlitedatabase.execSQL("create table if not exists recent " + columns);
     }
 
     public void onUpgrade(SQLiteDatabase sqlitedatabase, int i, int j)
