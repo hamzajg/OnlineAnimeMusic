@@ -12,7 +12,7 @@ Scenarios proven by this wave:
 
 | Item | Title | Size | Deps | Notes |
 |------|-------|------|------|-------|
-| US1 | As a listener, I want a bundled catalog seeded on first launch, so that the app has music without a dead backend | M | — | assets/catalog.json + generated WAVs in assets/raw; CatalogSeeder into song table; idempotent; JVM tests for JSON→ItemSong parsing. |
+| US1 | As a listener, I want a bundled catalog seeded on first launch, so that the app has music without a dead backend | M | — | assets/catalog.json + bundled WAVs in assets/music; CatalogSeeder into song table; idempotent; JVM tests for JSON→ItemSong parsing. |
 
 ## Wave 2 — iteration 2
 

@@ -4,13 +4,13 @@
 
 | AC | Criterion | Scenarios | Wave(s) | Test evidence |
 |----|-----------|-----------|---------|---------------|
-| 1 | First launch seeds the bundled catalog into the song table | 2 | @w1 | CatalogSeederTest.java |
-| 2 | MainActivity lists every seeded song with title, artist, dur | 1 | @w2 | (weak) CatalogSeederTest.java, PlayerControllerTest.java |
-| 3 | Tapping a song starts playback and shows it as current | 5 | @w3 | PlayerControllerTest.java |
-| 4 | Play/pause toggles playback state correctly | 5 | @w3 | PlayerControllerTest.java |
-| 5 | Next/previous move through the playlist with wrap-around | 0 | — | — |
-| 6 | Shuffle changes pick order deterministically-seeded; repeat- | 5 | @w3 | PlayerControllerTest.java |
-| 7 | The app works fully offline (no network calls on the play pa | 5 | @w3 | PlayerControllerTest.java |
+| 1 | First launch seeds the bundled catalog into the song table | Catalog seeded on first launch, Seed is idempotent | 1 | CatalogSeederTest.java |
+| 2 | MainActivity lists every seeded song with title, artist… | Song list shows catalog | 2 | (weak) CatalogSeederTest.java, PlayerControllerTest.java |
+| 3 | Tapping a song starts playback and shows it as current | Offline playback, Play pause toggles, Playlist navigation wraps, Shuffle and repeat work, Tap song to play | 3 | PlayerControllerTest.java |
+| 4 | Play/pause toggles playback state correctly | Offline playback, Play pause toggles, Playlist navigation wraps, Shuffle and repeat work, Tap song to play | 3 | PlayerControllerTest.java |
+| 5 | Next/previous move through the playlist with wrap-around | Offline playback, Play pause toggles, Playlist navigation wraps, Shuffle and repeat work, Tap song to play | 3 | PlayerControllerTest.java |
+| 6 | Shuffle changes pick order deterministically-seeded… | Offline playback, Play pause toggles, Playlist navigation wraps, Shuffle and repeat work, Tap song to play | 3 | PlayerControllerTest.java |
+| 7 | The app works fully offline (no network calls on the play… | Offline playback, Play pause toggles, Playlist navigation wraps, Shuffle and repeat work, Tap song to play | 3 | PlayerControllerTest.java |
 
 ## Scenario coverage
 
@@ -37,3 +37,11 @@
 Note: 'no evidence' means neither the scenario name nor a
 token match was found in test files — verify by hand before
 treating it as a real gap. '~' marks weak token-match evidence.
+
+## Outcome follow-up
+
+Optional; this is a post-release learning record, not a finish gate.
+- Status: not yet measured
+- Owner and review date: (record when known)
+- Signal and observed result: (record after release; do not invent)
+- Learning or next action: (record after review)

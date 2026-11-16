@@ -18,8 +18,8 @@ table starts empty, and the only catalog source is a dead remote API
 
 ## Scope (in)
 
-- Bundled catalog: `assets/catalog.json` + generated demo audio in
-  `assets/raw/`, seeded into the existing `song` table on first launch.
+- Bundled catalog: `assets/catalog.json` + bundled demo audio in
+  `assets/music/`, seeded into the existing `song` table on first launch.
 - Song list in `MainActivity`: title/artist/duration from `DBHelper.loadData()`.
 - Playback: `MediaPlayer`-backed controller with play/pause, next/prev,
   position/duration, repeat and shuffle.
@@ -41,11 +41,11 @@ table starts empty, and the only catalog source is a dead remote API
 
 | # | Criterion | Scenario(s) |
 |---|-----------|-------------|
-| 1 | First launch seeds the bundled catalog into the song table | Catalog seeded on first launch |
+| 1 | First launch seeds the bundled catalog into the song table | Catalog seeded on first launch, Seed is idempotent |
 | 2 | MainActivity lists every seeded song with title, artist, duration | Song list shows catalog |
 | 3 | Tapping a song starts playback and shows it as current | Tap song to play |
 | 4 | Play/pause toggles playback state correctly | Play pause toggles |
-| 5 | Next/previous move through the playlist with wrap-around | Next previous wraps |
+| 5 | Next/previous move through the playlist with wrap-around | Playlist navigation wraps |
 | 6 | Shuffle changes pick order deterministically-seeded; repeat-one loops | Shuffle and repeat work |
 | 7 | The app works fully offline (no network calls on the play path) | Offline playback |
 

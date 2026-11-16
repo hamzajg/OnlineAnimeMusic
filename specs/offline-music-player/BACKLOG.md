@@ -18,7 +18,7 @@ Order stories by user value; dependencies express technical order only.
 ## US1 — As a listener, I want a bundled catalog seeded on first launch, so that the app has music without a dead backend
 - Scenarios: @w1
 - Size: M
-- Notes: assets/catalog.json + generated WAVs in assets/raw; CatalogSeeder into song table; idempotent; JVM tests for JSON→ItemSong parsing.
+- Notes: assets/catalog.json + bundled WAVs in assets/music; CatalogSeeder into song table; idempotent; JVM tests for JSON→ItemSong parsing.
 
 ## US2 — As a listener, I want to browse the catalog in MainActivity, so that I can see what exists
 - Scenarios: @w2
