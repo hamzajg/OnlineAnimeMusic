@@ -8,7 +8,7 @@ Feature: Offline Music Player
     Given the app data directory is empty
     When the app launches for the first time
     Then the song table contains every entry from assets/catalog.json
-    And each entry points at a bundled audio file under assets/raw
+    And each entry points at a bundled audio file under assets/music
 
   @w1
   Scenario: Seed is idempotent
